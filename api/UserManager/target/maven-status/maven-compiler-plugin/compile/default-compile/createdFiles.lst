@@ -1,0 +1,9 @@
+com\ums\controller\EncriptDecriptUtil.class
+com\ums\controller\UserManagerController.class
+com\ums\model\User.class
+com\ums\UserManagerApplication.class
+com\ums\service\PasswordHashing.class
+com\ums\dao\UserManagerRepository.class
+com\ums\exception\AccessDeniedException.class
+com\ums\exception\UserException.class
+com\ums\service\UserManagerService.class

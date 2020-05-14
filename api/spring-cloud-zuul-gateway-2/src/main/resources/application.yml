@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: spring-cloud-zuul-gateway-2
+
+server:
+  port: 8085
+
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eureka:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes
+zuul:
+  ignoredPatterns: /**/actuator/**
+  prefix: /api
+  routes:
+    user-manager:
+      path:  /user-manager/**
+      serviceId:  user-manager
+    category-management-system:
+      path:  /category-management-system/**
+      serviceId:  category-management-system
+    activity-management-service:
+      path:  /activity-management-service/**
+      serviceId:  activity-management-service    
+            
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 10000            
